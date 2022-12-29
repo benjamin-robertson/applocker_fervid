@@ -318,7 +318,7 @@ Puppet::Type.type(:applocker_rule).provide(:powershell) do
     File.unlink(tempfile)
     # Create tempfile
     random_num = rand(0..1000)
-    exportfile = File.open("c:\temp\applockerpolicy#{random_num}.xml", 'w')
+    exportfile = File.open("c:\\temp\\applockerpolicy#{random_num}.xml", 'w')
     exportfile.puts xml_doc
     exportfile.close()
   rescue err
