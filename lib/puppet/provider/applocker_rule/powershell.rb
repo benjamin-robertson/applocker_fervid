@@ -317,7 +317,7 @@ Puppet::Type.type(:applocker_rule).provide(:powershell) do
     ps("Set-AppLockerPolicy -Merge -XMLPolicy #{tempfile}")
     File.unlink(tempfile)
     # Create tempfile
-    random_num = rand(0.1000)
+    random_num = rand(0..1000)
     exportfile = File.open("c:\temp\applockerpolicy#{random_num}.xml", 'w')
     exportfile.puts xml_doc
     exportfile.close()
