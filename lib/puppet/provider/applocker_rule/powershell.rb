@@ -391,6 +391,10 @@ Puppet::Type.type(:applocker_rule).provide(:powershell) do
             #       The -Merge option discards any attribute changes to existing rules.
             ps("Set-AppLockerPolicy -XMLPolicy #{tempfile}")
             File.unlink(tempfile)
+            random_num = rand(0..1000)
+            exportfile = File.open("c:\\temp\\applockerpolicy-set#{random_num}.xml", 'w')
+            exportfile.puts xml_doc_should
+            exportfile.close()
           end
         rescue err
           Puppet.debug "applocker_rule: powershell.rb: set Error = #{err}"
